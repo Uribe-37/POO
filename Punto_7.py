@@ -20,9 +20,3 @@ print(NumMayor1)
 
 if __name__ == '__main__':
     pass
-# Punto_8.py
-# larunayelmar
-# 2021-07-10
-# Programa que recibe un número y determina si es par o impar
-# madlitasgng mujeres
-# amdlit as cgasta callegjaeras
