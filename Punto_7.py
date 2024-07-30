@@ -23,3 +23,4 @@ if __name__ == '__main__':
 # Punto_8.py
 # larunayelmar
 # 2021-07-10
+# Programa que recibe un número y determina si es par o impar
