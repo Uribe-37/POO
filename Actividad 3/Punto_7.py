@@ -17,6 +17,3 @@ num1=float(input("Ingrese el primer numero: "))
 num2=float(input("Ingrese el segundo numero: "))   
 NumMayor1 = NumMayor(num1, num2)
 print(NumMayor1)
-
-if __name__ == '__main__':
-    pass
