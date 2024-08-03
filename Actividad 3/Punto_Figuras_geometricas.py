@@ -232,16 +232,16 @@ ventana.title("Figuras Geométricas")
 ventana.geometry("600x600")
 
 # Creación de frames
-frame_circulo = tk.Frame(ventana, bd=2, relief=tk.RIDGE)
+frame_circulo = tk.LabelFrame(ventana, bd=2, relief=tk.RIDGE, text="Círculo")
 frame_circulo.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
-frame_rectangulo = tk.Frame(ventana, bd=2, relief=tk.RIDGE)
+frame_rectangulo = tk.LabelFrame(ventana, bd=2, relief=tk.RIDGE, text="Rectángulo")
 frame_rectangulo.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
-frame_cuadrado = tk.Frame(ventana, bd=2, relief=tk.RIDGE)
+frame_cuadrado = tk.LabelFrame(ventana, bd=2, relief=tk.RIDGE, text="Cuadrado")
 frame_cuadrado.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
 
-frame_triangulo = tk.Frame(ventana, bd=2, relief=tk.RIDGE)
+frame_triangulo = tk.LabelFrame(ventana, bd=2, relief=tk.RIDGE, text="Triángulo rectángulo")
 frame_triangulo.grid(row=1, column=1, padx=10, pady=10, sticky="nsew")
 
 ventana.grid_columnconfigure(0, weight=1)
