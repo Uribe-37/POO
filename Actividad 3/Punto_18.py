@@ -25,9 +25,11 @@ def GUI():
         Valor = float(entry_valor.get())
         Ret = float(entry_ret.get())
         Empleado1 = Empleado(Cod, Nom, Horas, Valor, Ret)
-        resultado.config(text = str(Empleado1))
+        resultado.delete(1.0, tk.END)
+        resultado.insert(tk.END, str(Empleado1))
     except ValueError:
-        resultado.config(text="Error al ingresar los datos")
+        resultado.delete(1.0, tk.END)
+        resultado.insert(tk.END,"Error al ingresar los datos")
 
 def limpiar():
     entry_cod.delete(0, tk.END)
@@ -35,7 +37,7 @@ def limpiar():
     entry_horas.delete(0, tk.END)
     entry_valor.delete(0, tk.END)
     entry_ret.delete(0, tk.END)
-    resultado.config(text="")
+    resultado.delete(1.0, tk.END)
 
 # Ventana principal
 ventana = tk.Tk()
@@ -75,7 +77,7 @@ entry_ret.grid(row=4, column=1, padx=10, pady=5)
 boton_calcular = tk.Button(ventana, text="Calcular el salario", command=GUI)
 boton_calcular.grid(row=5, column=0, columnspan=1, pady=10)
 
-resultado = tk.Label(ventana)
+resultado = tk.Text(ventana, height=4, width=25)
 resultado.grid(row=5, column=1, padx=10, pady=5)
 
 boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar)
