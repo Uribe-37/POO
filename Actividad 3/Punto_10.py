@@ -6,17 +6,14 @@ class PagoMatricula():
         self.Estrato = Estrato
     
     def Matricula(self):
-        PagMat=50000
+        Pago_matricula = 50000
         if self.Patrimonio > 2000000 and self.Estrato>3:
-            PagMat=PagMat+0.03*self.Patrimonio
-        return "El estudiante con número de inscripcion {} y nombres {} debe pagar $ {}".format(self.Ni,self.Nombres,PagMat)
+            Pago_matricula = Pago_matricula + 0.03*self.Patrimonio
+        return "El estudiante con número de inscripcion {} y nombres {} debe pagar $ {}".format(self.Ni,self.Nombres,Pago_matricula)
     
-    def __str__(self):
-        return "{}".format(self.Matricula())
-
 Ni = str(input("Ingrese el número de inscripción del estudiante: "))
 Nombres = input("Ingrese los nombres del estudiante: ")
 Patrimonio = float(input("Ingrese el patrimonio del estudiante: "))
 Estrato = int(input("Ingrese el estrato del estudiante: "))
-Estudiante = PagoMatricula(Ni,Nombres,Patrimonio,Estrato)
+Estudiante = PagoMatricula(Ni,Nombres,Patrimonio,Estrato).Matricula()
 print(Estudiante)

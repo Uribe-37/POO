@@ -13,24 +13,20 @@ class NumMayor():
         else:
             return "{} es mayor que {}".format(self.num2, self.num1)
 
-    def __str__(self):
-        return "{}".format(self.mayor())
-
 def calcular_mayor():
     try:
         num1 = float(entry_num1.get())
         num2 = float(entry_num2.get())
-        num_mayor = NumMayor(num1, num2)
+        numero_mayor = NumMayor(num1, num2).mayor()
         entry_resultado.delete(0, tk.END)
-        entry_resultado.insert(0, str(num_mayor))
+        entry_resultado.insert(0, str(numero_mayor))
     except ValueError:
         entry_resultado.delete(0, tk.END)
         entry_resultado.insert(0, "Error: Por favor, ingrese números válidos")
 
-def limpiar_campos():
+def limpiar():
     entry_num1.delete(0, tk.END)
     entry_num2.delete(0, tk.END)
-    entry_resultado.config(state=tk.NORMAL)
     entry_resultado.delete(0, tk.END)
 
 # Crear la ventana principal
@@ -56,7 +52,7 @@ boton_calcular.grid(row=2, column=0, columnspan=1, pady=10)
 entry_resultado = tk.Entry(ventana)
 entry_resultado.grid(row=2, column=1, padx=10, pady=5)
 
-boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar_campos)
+boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar)
 boton_limpiar.grid(row=3, column=0, columnspan=2, pady=10)
 
 # Ejecutar el bucle principal de la ventana
