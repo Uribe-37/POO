@@ -13,7 +13,7 @@ class NumMayor():
         else:
             return "{} es mayor que {}".format(self.num2, self.num1)
 
-def calcular_mayor():
+def GUI():
     try:
         num1 = float(entry_num1.get())
         num2 = float(entry_num2.get())
@@ -29,11 +29,11 @@ def limpiar():
     entry_num2.delete(0, tk.END)
     entry_resultado.delete(0, tk.END)
 
-# Crear la ventana principal
+# Ventana principal
 ventana = tk.Tk()
 ventana.title("Número mayor")
 
-# Crear y colocar los widgets usando grid para una mejor organización
+# Widgets de la GUI
 label_num1 = tk.Label(ventana, text="Ingrese el primer número:")
 label_num1.grid(row=0, column=0, padx=10, pady=5)
 
@@ -46,7 +46,7 @@ label_num2.grid(row=1, column=0, padx=10, pady=5)
 entry_num2 = tk.Entry(ventana)
 entry_num2.grid(row=1, column=1, padx=10, pady=5)
 
-boton_calcular = tk.Button(ventana, text="Obtener el número mayor", command=calcular_mayor)
+boton_calcular = tk.Button(ventana, text="Obtener el número mayor", command=GUI)
 boton_calcular.grid(row=2, column=0, columnspan=1, pady=10)
 
 entry_resultado = tk.Entry(ventana)
@@ -55,5 +55,5 @@ entry_resultado.grid(row=2, column=1, padx=10, pady=5)
 boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar)
 boton_limpiar.grid(row=3, column=0, columnspan=2, pady=10)
 
-# Ejecutar el bucle principal de la ventana
+# Bucle principal
 ventana.mainloop()
