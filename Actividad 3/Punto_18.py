@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class Empleado(object):
+class Empleado():
     def __init__(self, cod_empleado, nombre, num_horas_tra,Val_hora,porc_retencion):
         self.cod_empleado = cod_empleado
         self.nombre = nombre
