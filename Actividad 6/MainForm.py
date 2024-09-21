@@ -2,18 +2,18 @@ import os
 import tkinter as tk
 from Clear import Clear
 from Create import CreateFriend
+ 
 
 class FriendManager:
     def __init__(self, file_path="friendsContact.txt"):
         self.file_path = file_path
         if not os.path.exists(self.file_path):
-            with open(self.file_path, 'w') as f:
+            with open(self.file_path, 'w') as file:
                 pass
 
 class App:
     def __init__(self, root):
         self.manager = FriendManager()
-        print(self.manager.file_path)
 
         # Crear el marco principal
         self.frame = tk.Frame(root, padx=10, pady=10)
@@ -36,7 +36,7 @@ class App:
 
         # Buttons
         button_style = {'width': 8, 'font': ('Arial', 9)}  # Tamaño y estilo de fuente
-        self.create_button = tk.Button(self.button_frame, text="Create", command=Create(self.name_entry, self.number_entry).main, **button_style)
+        self.create_button = tk.Button(self.button_frame, text="Create", command=CreateFriend(self.name_entry, self.number_entry).main, **button_style)
         self.create_button.grid(row=0, column=0, padx=7)
 
         self.read_button = tk.Button(self.button_frame, text="Read", **button_style)

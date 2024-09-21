@@ -2,7 +2,11 @@ import os
 from tkinter import messagebox
 
 class CreateFriend:
+    def __init__(self, name_entry, number_entry):
+        self.name_entry = name_entry
+        self.number_entry = number_entry
 
+    @staticmethod
     def main():
         try:
             # Get the name of the contact to be added
