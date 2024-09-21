@@ -36,7 +36,7 @@ class App:
 
         # Buttons
         button_style = {'width': 8, 'font': ('Arial', 9)}  # Tamaño y estilo de fuente
-        self.create_button = tk.Button(self.button_frame, text="Create", command=CreateFriend(self.name_entry, self.number_entry).main, **button_style)
+        self.create_button = tk.Button(self.button_frame, text="Create", command=lambda: CreateFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.create_button.grid(row=0, column=0, padx=7)
 
         self.read_button = tk.Button(self.button_frame, text="Read", **button_style)

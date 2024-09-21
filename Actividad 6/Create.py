@@ -2,25 +2,15 @@ import os
 from tkinter import messagebox
 
 class CreateFriend:
-    def __init__(self, name_entry, number_entry):
-        self.name_entry = name_entry
-        self.number_entry = number_entry
+    def __init__(self):
+        pass
 
-    @staticmethod
-    def main():
+    def main(file_path, new_name, new_number):
         try:
-            # Get the name of the contact to be added
-            new_name = 'Juan'
-            # Get the number to be added
-            new_number = 124
-            
-            file_path = "friendsContact.txt"
+            nuevo_name = new_name.get()
+            nuevo_number = int(new_number.get())
+
             found = False
-            
-            # Create the file if it doesn't exist
-            if not os.path.exists(file_path):
-                with open(file_path, 'w') as file:
-                    pass
             
             # Reading the file and checking for existing contact
             with open(file_path, 'r+') as file:
@@ -29,13 +19,13 @@ class CreateFriend:
                     name = line_split[0]
                     number = int(line_split[1])
 
-                    if name == new_name and number == new_number:
+                    if name == nuevo_name and number == nuevo_number:
                         found = True
                         break
                 
                 if not found:
                     # Move the file pointer to the end of the file before writing
-                    file.write(f"{new_name}!{new_number}\n")
+                    file.write(f"{nuevo_name}!{nuevo_number}\n")
                     messagebox.showinfo("Success", "Friend added.")
                 else:
                     messagebox.showwarning("Warning", "Friend already exists.")
