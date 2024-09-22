@@ -2,13 +2,6 @@ import os
 import tkinter as tk
 from tkinter import messagebox
 
-class Friends:
-    def __init__(self):
-        pass
-
-    def main(self):
-        self.main_form = MainForm(tk.Tk())
-
 class MainForm:
     def __init__(self, root):
         self.file_path = "friendsContact.txt"
@@ -201,7 +194,3 @@ class MainForm:
     def Clear(self):
         self.name_entry.delete(0, tk.END)
         self.number_entry.delete(0, tk.END)
-
-
-if __name__ == "__main__":
-    friends_app = Friends().main()
