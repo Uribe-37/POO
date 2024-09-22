@@ -17,7 +17,7 @@ class App:
     def __init__(self, root):
         self.manager = FriendManager()
 
-        # Crear el marco principal
+        # Frame for the form
         self.frame = tk.Frame(root, padx=10, pady=10)
         self.frame.pack(expand=True)
 
@@ -32,12 +32,12 @@ class App:
         self.number_entry = tk.Entry(self.frame, width=30)
         self.number_entry.grid(row=1, column=1, pady=5)
 
-        # Crear un marco para los botones
+        # Button Frame
         self.button_frame = tk.Frame(root)
         self.button_frame.pack(pady=5)
 
         # Buttons
-        button_style = {'width': 8, 'font': ('Arial', 9)}  # Tamaño y estilo de fuente
+        button_style = {'width': 8, 'font': ('Arial', 9)}  # Style for the buttons
         self.create_button = tk.Button(self.button_frame, text="Create", command=lambda: CreateFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.create_button.grid(row=0, column=0, padx=7)
 
@@ -50,7 +50,7 @@ class App:
         self.delete_button = tk.Button(self.button_frame, text="Delete", command=lambda: DeleteFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.delete_button.grid(row=0, column=3, padx=7)
 
-        # Aquí se crea una instancia de Clear y se pasa el método sin llamarlo
+        # Clear Button
         self.clear_button = tk.Button(self.button_frame, text="Clear", command=Clear(self.name_entry, self.number_entry).clear_entries, **button_style)
         self.clear_button.grid(row=0, column=4, padx=7)
 
@@ -59,6 +59,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.title("Friends Manager")
     root.geometry("450x150")
-    root.resizable(False, False)  # Restringir el tamaño de la ventana
+    root.resizable(False, False) # Window size cannot be changed
     app = App(root)
     root.mainloop()
