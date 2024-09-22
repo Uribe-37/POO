@@ -2,21 +2,17 @@ import os
 from tkinter import messagebox
 
 class UpdateFriend:
+    def __init__(self):
+        pass
 
-    @staticmethod
-    def main(data):
+    def main(file_path, new_name, new_number):
         try:
-            # Get the name of the contact to be updated from the command line arguments
-            input_name = data[0]
-            # Get the new number to be updated from the command line arguments
-            new_number = int(data[1])
-            
-            file_path = "friendsContact.txt"
-
-            # Create the file if it doesn't exist
-            if not os.path.exists(file_path):
-                with open(file_path, 'w') as file:
-                    pass
+            input_name = new_name.get()
+            try:
+                update_number = int(new_number.get())
+            except ValueError:
+                    messagebox.showwarning("Warning", "The number must be a valid integer.")
+                    return
 
             found = False
             tmp_file_path = "temp.txt"
@@ -32,7 +28,7 @@ class UpdateFriend:
                         # Check if the fetched contact is the one to be updated
                         if name == input_name:
                             # Update the number of this contact
-                            line = f"{name}!{new_number}\n"
+                            line = f"{name}!{update_number}\n"
                             found = True
 
                     # Write the line (updated or not) to the temporary file
@@ -51,7 +47,3 @@ class UpdateFriend:
         except ValueError as ve:
             print(ve)
 
-# Example usage:
-if __name__ == "__main__":
-    import sys
-    UpdateFriend.main(sys.argv[1:])

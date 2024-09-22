@@ -2,8 +2,10 @@ import os
 import tkinter as tk
 from Clear import Clear
 from Create import CreateFriend
+from Read import ReadFriend
+from Update import UpdateFriend
+from Delete import DeleteFriend
  
-
 class FriendManager:
     def __init__(self, file_path="friendsContact.txt"):
         self.file_path = file_path
@@ -39,13 +41,13 @@ class App:
         self.create_button = tk.Button(self.button_frame, text="Create", command=lambda: CreateFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.create_button.grid(row=0, column=0, padx=7)
 
-        self.read_button = tk.Button(self.button_frame, text="Read", **button_style)
+        self.read_button = tk.Button(self.button_frame, text="Read", command=lambda: ReadFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.read_button.grid(row=0, column=1, padx=7)
 
-        self.update_button = tk.Button(self.button_frame, text="Update", **button_style)
+        self.update_button = tk.Button(self.button_frame, text="Update", command=lambda: UpdateFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.update_button.grid(row=0, column=2, padx=7)
 
-        self.delete_button = tk.Button(self.button_frame, text="Delete", **button_style)
+        self.delete_button = tk.Button(self.button_frame, text="Delete", command=lambda: DeleteFriend.main(self.manager.file_path, self.name_entry, self.number_entry), **button_style)
         self.delete_button.grid(row=0, column=3, padx=7)
 
         # Aquí se crea una instancia de Clear y se pasa el método sin llamarlo

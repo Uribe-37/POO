@@ -2,19 +2,23 @@ import os
 from tkinter import messagebox
 
 class DeleteFriend:
+    def __init__(self):
+        pass
 
-    @staticmethod
-    def main(data):
+    def main(file_path, new_name, new_number):
+        # Verificar que ambos campos no estén vacíos
+        if not new_name.get() or not new_number.get():
+            messagebox.showwarning("Warning", "Both fields are required.")
+            return
+        
         try:
-            # Get the name of the contact to be deleted from the command line arguments
-            input_name = data[0]
-
-            file_path = "friendsContact.txt"
-
-            # Create the file if it doesn't exist
-            if not os.path.exists(file_path):
-                with open(file_path, 'w') as file:
-                    pass
+            input_new_name = new_name.get()
+            # Intentar convertir new_number a entero
+            try:
+                input_new_number = int(new_number.get())
+            except ValueError:
+                messagebox.showwarning("Warning", "The number must be a valid integer.")
+                return
 
             found = False
             tmp_file_path = "temp.txt"
@@ -28,7 +32,7 @@ class DeleteFriend:
                         number = int(line_split[1])
 
                         # Check if the fetched contact is the one to be deleted
-                        if name == input_name:
+                        if name == input_new_name and number == input_new_number:
                             found = True
                             continue  # Skip this contact
 
@@ -45,8 +49,3 @@ class DeleteFriend:
 
         except IOError as ioe:
             print(ioe)
-
-# Example usage:
-if __name__ == "__main__":
-    import sys
-    DeleteFriend.main(sys.argv[1:])

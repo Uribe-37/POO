@@ -1,4 +1,3 @@
-import os
 from tkinter import messagebox
 
 class CreateFriend:
@@ -6,9 +5,19 @@ class CreateFriend:
         pass
 
     def main(file_path, new_name, new_number):
+        # Verificar que ambos campos no estén vacíos
+        if not new_name.get() or not new_number.get():
+            messagebox.showwarning("Warning", "Both fields are required.")
+            return
+        
         try:
             nuevo_name = new_name.get()
-            nuevo_number = int(new_number.get())
+            # Intentar convertir new_number a entero
+            try:
+                nuevo_number = int(new_number.get())
+            except ValueError:
+                messagebox.showwarning("Warning", "The number must be a valid integer.")
+                return
 
             found = False
             
@@ -32,6 +41,3 @@ class CreateFriend:
 
         except IOError as ioe:
             print(ioe)
-        except ValueError as ve:
-            print(ve)
-
